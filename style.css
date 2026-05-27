@@ -173,8 +173,8 @@ a {
 }
 .brand__logo {
   width: auto;
-  height: 72px;
-  max-width: min(220px, 42vw);
+  height: 120px;
+  max-width: min(380px, 68vw);
   object-fit: contain;
 }
 
@@ -190,19 +190,37 @@ a {
   align-items: center;
 }
 .nav__link {
+  position: relative;
   font-weight: 600;
   color: rgba(19, 31, 48, 0.80);
   padding: 10px 10px;
   border-radius: 999px;
   transition: background 160ms ease, color 160ms ease;
 }
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 4px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
 .nav__link:hover {
   background: rgba(98, 82, 153, 0.10);
   color: rgba(19, 31, 48, 0.92);
 }
 .nav__link.is-active {
-  background: rgba(241, 101, 34, 0.12);
+  background: rgba(255, 255, 255, 0.01);
   color: rgba(19, 31, 48, 0.92);
+}
+.nav__link:hover::after,
+.nav__link.is-active::after {
+  transform: scaleX(1);
 }
 
 .header__cta {
@@ -251,21 +269,6 @@ a {
   overflow: hidden;
   padding: clamp(36px, 5vw, 56px) 0 clamp(72px, 9vw, 108px);
   background: var(--cream-1);
-}
-
-.hero__wave {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  z-index: 2;
-  line-height: 0;
-  pointer-events: none;
-}
-.hero__wave-svg {
-  display: block;
-  width: 100%;
-  height: clamp(52px, 8vw, 88px);
 }
 
 .hero__bg {
@@ -367,26 +370,60 @@ a {
   position: relative;
   display: grid;
   place-items: end center;
-  min-height: 360px;
+  min-height: 200px;
 }
 
 .hero__kids {
-  width: min(520px, 100%);
+  width: min(1200px, 145%);
+  max-width: none;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 18px 28px rgba(19, 31, 48, 0.14));
   position: relative;
-  z-index: 2;
+  z-index: 4;
+  transform: translateX(4%);
 }
 
 .hero__badge {
   position: absolute;
   left: 4%;
   top: 18%;
-  z-index: 3;
+  z-index: 5;
   display: grid;
   gap: 4px;
   transform: rotate(-6deg);
+}
+
+.hero-transition {
+  position: relative;
+  height: clamp(120px, 16vw, 230px);
+  margin-top: -105px;
+  margin-bottom: -4px;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-transition__shape {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%;
+  height: auto;
+  opacity: 0.96;
+}
+.hero-transition__shape--rectangle {
+  width: min(1440px, 116%);
+  bottom: 117px;
+  z-index: -3;
+}
+.hero-transition__shape--intersect {
+  width: min(1320px, 108%);
+  bottom: 135px;
+  z-index: -2;
+}
+.hero-transition__shape--union {
+  width: min(1380px, 112%);
+  bottom: 99px;
+  z-index: -1;
 }
 .hero__badge-start,
 .hero__badge-now {
@@ -689,10 +726,12 @@ a {
   place-items: center;
 }
 .about__photo {
-  width: min(520px, 100%);
+  width: min(860px, 132%);
+  max-width: none;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 20px 36px rgba(19, 31, 48, 0.12));
+  transform: translateX(-2%);
 }
 .about__content .section-lead {
   margin-bottom: 22px;
@@ -924,6 +963,9 @@ a {
   .hero__inner {
     grid-template-columns: 1fr;
   }
+  .hero__kids {
+    width: min(1400px, 100%);
+  }
   .photo-grid {
     height: 380px;
   }
@@ -979,6 +1021,10 @@ a {
   .nav__link {
     padding: 12px 14px;
   }
+  .brand__logo {
+    height: 92px;
+    max-width: min(300px, 64vw);
+  }
 
   .nav-open .nav {
     opacity: 1;
@@ -989,6 +1035,14 @@ a {
   .hero__actions {
     flex-direction: column;
     align-items: stretch;
+  }
+  .hero__media {
+    min-height: 430px;
+  }
+  .hero-transition {
+    height: clamp(90px, 16vw, 150px);
+    margin-top: -125px;
+    margin-bottom: -2px;
   }
 
   .photo-grid {
