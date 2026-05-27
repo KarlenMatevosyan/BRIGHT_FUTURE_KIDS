@@ -69,24 +69,10 @@
           <div class="hero__dots"></div>
         </div>
 
-        <div class="hero__wave" aria-hidden="true">
-          <svg
-            class="hero__wave-svg"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,64 C120,108 240,28 360,64 C480,100 600,36 720,64 C840,92 960,40 1080,64 C1200,88 1320,52 1440,72 L1440,120 L0,120 Z"
-              fill="#ffffff"
-            />
-          </svg>
-        </div>
-
         <div class="container hero__inner">
           <div class="hero__content">
             <p class="hero__kicker">Learn is adventure!</p>
-            <h1 class="hero__title">Where Every Child Plays To Learn!</h1>
+            <h1 class="hero__title">Where Every Child<br />Plays To Learn!</h1>
             <p class="hero__lead">
               At Bright Future Kids Daycare, we are dedicated to giving every child a joyful and
               meaningful childhood, because we believe that.
@@ -112,6 +98,27 @@
           </div>
         </div>
       </section>
+
+      <div class="hero-transition" aria-hidden="true">
+        <img
+          class="hero-transition__shape hero-transition__shape--rectangle"
+          src="images/Rectangle9.png"
+          alt=""
+          onerror="this.hidden=true"
+        />
+        <img
+          class="hero-transition__shape hero-transition__shape--intersect"
+          src="images/Intersect.png"
+          alt=""
+          onerror="this.hidden=true"
+        />
+        <img
+          class="hero-transition__shape hero-transition__shape--union"
+          src="images/Union.png"
+          alt=""
+          onerror="this.hidden=true"
+        />
+      </div>
 
       <section class="about" id="about">
         <div class="container about__inner">
@@ -194,9 +201,9 @@
               </div>
               <div class="feature-card__body">
                 <span class="feature-card__dot" aria-hidden="true"></span>
-                <h3 class="feature-card__title">Healthy Nutrition</h3>
+                <h3 class="feature-card__title">CREATE A WARM AND SECURE SPACE FOR EVERY CHILD</h3>
                 <p class="feature-card__text">
-                  Protect their health with balanced meals and mindful eating habits every day.
+                  
                 </p>
                 <a class="arrow-btn arrow-btn--orange" href="#programms" aria-label="Learn more about Healthy Nutrition">
                   <span class="arrow-btn__icon" aria-hidden="true">→</span>
@@ -222,10 +229,8 @@
               </div>
               <div class="feature-card__body">
                 <span class="feature-card__dot" aria-hidden="true"></span>
-                <h3 class="feature-card__title">Nature Explore</h3>
-                <p class="feature-card__text">
-                  Children may explore the outdoors and discover the wonders of nature.
-                </p>
+                <h3 class="feature-card__title">BRING JOY, SMILES AND POSITIVE EXPERIENCE INTO THEIR DAILY LIVES</h3>
+                
                 <a class="arrow-btn arrow-btn--green" href="#pages" aria-label="Learn more about Nature Explore">
                   <span class="arrow-btn__icon" aria-hidden="true">→</span>
                 </a>
@@ -250,10 +255,8 @@
               </div>
               <div class="feature-card__body">
                 <span class="feature-card__dot" aria-hidden="true"></span>
-                <h3 class="feature-card__title">Garden Cycle</h3>
-                <p class="feature-card__text">
-                  Vegetables in the garden teach kids where food comes from and how to grow.
-                </p>
+                <h3 class="feature-card__title">SUPPORT HEALTHY PHYSICAL AND EMOTIONAL DEVELOPMENT.</h3>
+                
                 <a class="arrow-btn arrow-btn--sky" href="#events" aria-label="Learn more about Garden Cycle">
                   <span class="arrow-btn__icon" aria-hidden="true">→</span>
                 </a>
@@ -272,10 +275,8 @@
               </div>
               <div class="feature-card__body">
                 <span class="feature-card__dot" aria-hidden="true"></span>
-                <h3 class="feature-card__title">Child Protection</h3>
-                <p class="feature-card__text">
-                  Legal support and safe environments that keep every child protected.
-                </p>
+                <h3 class="feature-card__title">AND BECOME A PLACE WHERE CHILDREN FEEL COMFORTABLE, CONFIDENT AND CARED FOR</h3>
+               
                 <a class="arrow-btn arrow-btn--yellow" href="#blog" aria-label="Learn more about Child Protection">
                   <span class="arrow-btn__icon" aria-hidden="true">→</span>
                 </a>
@@ -287,19 +288,6 @@
     </main>
 
     <footer class="site-footer" id="contacts">
-      <div class="container footer__top">
-        <nav class="footer__nav" aria-label="Footer">
-          <a class="footer__link" href="#">Home</a>
-          <a class="footer__link" href="#pages">Pages</a>
-          <a class="footer__link" href="#programms">Programms</a>
-          <a class="footer__link" href="#events">Events</a>
-          <a class="footer__link" href="#blog">Blog</a>
-          <a class="footer__link" href="#contacts">Contacts</a>
-        </nav>
-
-        <a class="btn btn--accent footer__cta" href="#admission">Online Admission</a>
-      </div>
-
       <div class="footer__logo-wrap">
         <img
           class="footer__logo-full"
@@ -320,7 +308,7 @@
           loading="lazy"
         />
       </div>
-    </footer>
+    </footer>  
 
     <script>
       const toggle = document.querySelector(".nav-toggle");
@@ -336,6 +324,14 @@
           document.documentElement.classList.toggle("nav-open", next);
         });
       }
+
+      const navLinks = document.querySelectorAll(".nav__link");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.forEach((item) => item.classList.remove("is-active"));
+          link.classList.add("is-active");
+        });
+      });
     </script>
   </body>
 </html>
