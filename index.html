@@ -288,27 +288,66 @@
     </main>
 
     <footer class="site-footer" id="contacts">
-      <div class="footer__logo-wrap">
-        <img
-          class="footer__logo-full"
-          src="images/logo-lowresolutionv2-2x.jpg"
-          alt="Bright Future Kids Childcare"
-          width="1640"
-          height="1640"
-        />
+      <div class="container footer__top">
+        <div class="footer__col footer__col--logo">
+          <img
+            class="footer__logo-full"
+            src="images/logo-lowresolutionv2-2x.jpg"
+            alt="Bright Future Kids Childcare"
+            width="1640"
+            height="1640"
+          />
+        </div>
+
+        <section class="footer__col">
+          <h3 class="footer__title">Contacts Us</h3>
+          <p class="footer__label">Address:</p>
+          <p class="footer__text">North Hills, CA</p>
+          <p class="footer__label">Phone:</p>
+          <p class="footer__text">+1 (424) 507 5757</p>
+        </section>
+
+        <section class="footer__col">
+          <h3 class="footer__title">Language</h3>
+          <ul class="footer__list" aria-label="Languages">
+            <li>Armenian</li>
+            <li>English</li>
+            <li>Russian</li>
+          </ul>
+        </section>
+
+        <section class="footer__col footer__col--newsletter">
+          <form class="footer__newsletter" action="#" method="post">
+            <label class="sr-only" for="newsletter-email">Your email address</label>
+            <input
+              id="newsletter-email"
+              name="email"
+              type="email"
+              placeholder="Your email address"
+              autocomplete="email"
+            />
+            <button type="submit" aria-label="Submit email">➤</button>
+          </form>
+          <p class="footer__text footer__text--mt">
+            Get the latest update and offers for business services yearly.
+          </p>
+          <h3 class="footer__title footer__title--small">Licensed Home-Based Childcare</h3>
+          <p class="footer__text footer__license">LIC #195700615.</p>
+        </section>
       </div>
 
       <div class="footer__train-wrap">
         <img
           class="footer__train"
           src="images/Footer.jpg"
-          alt="Cartoon animal train on green grass"
+          alt="Cartoon train and grass decoration"
           width="1197"
           height="673"
           loading="lazy"
         />
       </div>
-    </footer>  
+
+    </footer>
 
     <script>
       const toggle = document.querySelector(".nav-toggle");
