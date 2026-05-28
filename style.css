@@ -163,7 +163,7 @@ a {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 14px;
-  padding: 14px 0;
+  padding: 6px 0;
 }
 
 .brand {
@@ -173,8 +173,8 @@ a {
 }
 .brand__logo {
   width: auto;
-  height: 120px;
-  max-width: min(380px, 68vw);
+  height: 92px;
+  max-width: min(300px, 58vw);
   object-fit: contain;
 }
 
@@ -193,7 +193,7 @@ a {
   position: relative;
   font-weight: 600;
   color: rgba(19, 31, 48, 0.80);
-  padding: 10px 10px;
+  padding: 8px 9px;
   border-radius: 999px;
   transition: background 160ms ease, color 160ms ease;
 }
@@ -268,7 +268,7 @@ a {
   position: relative;
   overflow: hidden;
   padding: clamp(36px, 5vw, 56px) 0 clamp(72px, 9vw, 108px);
-  background: var(--cream-1);
+  background: linear-gradient(180deg, #fff1da 0%, #fff5e9 58%, #ffffff 100%);
 }
 
 .hero__bg {
@@ -278,10 +278,7 @@ a {
 }
 
 .hero__shine {
-  position: absolute;
-  inset: -40% -40% auto -40%;
-  height: 70%;
-  background: radial-gradient(circle at 30% 40%, rgba(255, 213, 74, 0.55), rgba(255, 255, 255, 0) 60%);
+  display: none;
 }
 
 .hero__dots {
@@ -336,11 +333,15 @@ a {
 
 .hero__inner {
   position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: 1.08fr 0.92fr;
   gap: clamp(28px, 4vw, 48px);
   align-items: center;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 7; /* Top priority: text */
 }
 
 .hero__kicker {
@@ -348,6 +349,7 @@ a {
   font-weight: 700;
   color: var(--accent);
   font-size: 15px;
+  transform: translateY(-40px);
 }
 
 .hero__title {
@@ -357,6 +359,7 @@ a {
   letter-spacing: -0.02em;
   font-size: clamp(34px, 4.2vw, 54px);
   line-height: 1.05;
+  transform: translateY(-15px);
 }
 
 .hero__lead {
@@ -369,8 +372,10 @@ a {
 .hero__media {
   position: relative;
   display: grid;
-  place-items: end center;
-  min-height: 200px;
+  place-items: start start;
+  min-height: 400px;
+  transform: translateY(-26px);
+  z-index: 5; /* Keep Kid layer above intersect/rectangle */
 }
 
 .hero__kids {
@@ -380,14 +385,14 @@ a {
   object-fit: contain;
   filter: drop-shadow(0 18px 28px rgba(19, 31, 48, 0.14));
   position: relative;
-  z-index: 4;
-  transform: translateX(4%);
+  z-index: 5; /* Between Union and Intersect */
+  transform: translateX(-20%) translateY(6%);
 }
 
 .hero__badge {
   position: absolute;
-  left: 4%;
-  top: 18%;
+  left: -8%;
+  top: 48%;
   z-index: 5;
   display: grid;
   gap: 4px;
@@ -397,9 +402,8 @@ a {
 .hero-transition {
   position: relative;
   height: clamp(120px, 16vw, 230px);
-  margin-top: -105px;
+  margin-top: -220px;
   margin-bottom: -4px;
-  z-index: 0;
   pointer-events: none;
 }
 .hero-transition__shape {
@@ -412,18 +416,18 @@ a {
 }
 .hero-transition__shape--rectangle {
   width: min(1440px, 116%);
-  bottom: 117px;
-  z-index: -3;
+  bottom: 86px;
+  z-index: 1; /* Lowest */
 }
 .hero-transition__shape--intersect {
   width: min(1320px, 108%);
-  bottom: 135px;
-  z-index: -2;
+  bottom: 108px;
+  z-index: 2; /* Below Kid */
 }
 .hero-transition__shape--union {
   width: min(1380px, 112%);
-  bottom: 99px;
-  z-index: -1;
+  bottom: 82px;
+  z-index: 6; /* Above Kid, below text */
 }
 .hero__badge-start,
 .hero__badge-now {
@@ -965,6 +969,11 @@ a {
   }
   .hero__kids {
     width: min(1400px, 100%);
+    transform: translateX(-8%) translateY(4%);
+  }
+  .hero__badge {
+    left: 0;
+    top: 46%;
   }
   .photo-grid {
     height: 380px;
@@ -1022,8 +1031,8 @@ a {
     padding: 12px 14px;
   }
   .brand__logo {
-    height: 92px;
-    max-width: min(300px, 64vw);
+    height: 78px;
+    max-width: min(260px, 62vw);
   }
 
   .nav-open .nav {
@@ -1038,6 +1047,14 @@ a {
   }
   .hero__media {
     min-height: 430px;
+    place-items: end center;
+  }
+  .hero__kids {
+    transform: translateX(-4%) translateY(0);
+  }
+  .hero__badge {
+    left: 2%;
+    top: 20%;
   }
   .hero-transition {
     height: clamp(90px, 16vw, 150px);
