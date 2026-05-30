@@ -82,13 +82,18 @@
 
           <div class="hero__media">
             <picture>
-              <source srcset="images/Kid-highfidelityv2-2x.png" media="(min-width: 768px)" />
+              <source
+                srcset="images/Kid-highfidelityv2-2x.png"
+                media="(min-width: 768px)"
+              />
               <img
                 class="hero__kids"
                 src="images/Kid.png"
                 alt="Happy children ready for school"
                 width="3072"
                 height="2048"
+                decoding="async"
+                fetchpriority="high"
               />
             </picture>
             <div class="hero__badge" aria-hidden="true">
@@ -356,6 +361,12 @@
 
       if (year) year.textContent = String(new Date().getFullYear());
 
+      const closeNav = () => {
+        if (!toggle || !nav) return;
+        toggle.setAttribute("aria-expanded", "false");
+        document.documentElement.classList.remove("nav-open");
+      };
+
       if (toggle && nav) {
         toggle.addEventListener("click", () => {
           const next = toggle.getAttribute("aria-expanded") !== "true";
@@ -369,7 +380,12 @@
         link.addEventListener("click", () => {
           navLinks.forEach((item) => item.classList.remove("is-active"));
           link.classList.add("is-active");
+          closeNav();
         });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeNav();
       });
     </script>
   </body>
